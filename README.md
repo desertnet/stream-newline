@@ -1,4 +1,4 @@
-# stream-newline
+# stream-newline [![Build Status](https://travis-ci.org/desertnet/stream-newline.svg?branch=master)](https://travis-ci.org/desertnet/stream-newline)
 
 Ensure stream ends with a newline
 
