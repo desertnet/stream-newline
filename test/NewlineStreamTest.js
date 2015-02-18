@@ -34,4 +34,12 @@ describe("NewlineStream", function () {
       return done()
     })
   })
+
+  it("should be able to use custom newline sequences", function (done) {
+    newlineStream = new NewlineStream({ eol: "!!\n" })
+    pipeIntoNewlineStream("foob", "ar", function (result) {
+      assert.equal("foobar!!\n", result.toString())
+      return done()
+    })
+  })
 })
