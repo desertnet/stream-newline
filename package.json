@@ -26,6 +26,8 @@
   },
   "homepage": "https://github.com/desertnet/stream-newline",
   "devDependencies": {
-    "mocha": "^2.1.0"
+    "concat-stream": "^1.4.7",
+    "mocha": "^2.1.0",
+    "stream-array": "^1.0.1"
   }
 }
