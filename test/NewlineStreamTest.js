@@ -27,4 +27,11 @@ describe("NewlineStream", function () {
       return done()
     })
   })
+
+  it("should append a newline to a stream that does not have one", function (done) {
+    pipeIntoNewlineStream("foobar", function (result) {
+      assert.equal("foobar" + os.EOL, result.toString())
+      return done()
+    })
+  })
 })

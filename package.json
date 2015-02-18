@@ -29,5 +29,8 @@
     "concat-stream": "^1.4.7",
     "mocha": "^2.1.0",
     "stream-array": "^1.0.1"
+  },
+  "dependencies": {
+    "buffer-equal": "0.0.1"
   }
 }
