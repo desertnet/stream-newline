@@ -1,0 +1,31 @@
+{
+  "name": "stream-newline",
+  "version": "1.0.0",
+  "description": "Ensure stream ends with a newline",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/desertnet/stream-newline.git"
+  },
+  "keywords": [
+    "stream",
+    "newline",
+    "append",
+    "trailing"
+  ],
+  "author": "Eric McCarthy <eric@limulus.net> (http://www.limulus.net/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/desertnet/stream-newline/issues"
+  },
+  "homepage": "https://github.com/desertnet/stream-newline",
+  "devDependencies": {
+    "mocha": "^2.1.0"
+  }
+}
