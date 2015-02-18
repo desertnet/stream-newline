@@ -9,16 +9,16 @@ var concat = require("concat-stream")
 var NewlineStream = require("../lib/NewlineStream.js")
 
 describe("NewlineStream", function () {
-  var newlineStream
+  var nlStream
 
   var pipeIntoNewlineStream = function () {
     var args = Array.prototype.slice.call(arguments)
     var cb = args.pop()
-    return streamify(args).pipe(newlineStream).pipe(concat(cb))
+    return streamify(args).pipe(nlStream).pipe(concat(cb))
   }
 
   beforeEach(function () {
-    newlineStream = new NewlineStream()
+    nlStream = new NewlineStream()
   })
 
   it("should not modify streams that end with a newline", function (done) {
@@ -35,10 +35,18 @@ describe("NewlineStream", function () {
     })
   })
 
-  it("should be able to use custom newline sequences", function (done) {
-    newlineStream = new NewlineStream({ eol: "!!\n" })
+  it("should be able to append custom newline sequences", function (done) {
+    nlStream = new NewlineStream({ eol: "!!\n" })
     pipeIntoNewlineStream("foob", "ar", function (result) {
       assert.equal("foobar!!\n", result.toString())
+      return done()
+    })
+  })
+
+  it("should be able to recognize custom newline sequences", function (done) {
+    nlStream = new NewlineStream({ eol: "!!\r\n" })
+    pipeIntoNewlineStream("foo", "bar!!\r\n", function (result) {
+      assert.equal("foobar!!\r\n", result)
       return done()
     })
   })
