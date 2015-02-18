@@ -1,0 +1,1 @@
+Yes, this file has a trailing newline (\n).
