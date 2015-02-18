@@ -46,7 +46,15 @@ describe("NewlineStream", function () {
   it("should be able to recognize custom newline sequences", function (done) {
     nlStream = new NewlineStream({ eol: "!!\r\n" })
     pipeIntoNewlineStream("foo", "bar!!\r\n", function (result) {
-      assert.equal("foobar!!\r\n", result)
+      assert.equal("foobar!!\r\n", result.toString())
+      return done()
+    })
+  })
+
+  it("should not freak out when newline sequences span chunks", function (done) {
+    nlStream = new NewlineStream({ eol: "\r\n" })
+    pipeIntoNewlineStream("foo\r", "\n", function (result) {
+      assert.equal("foo\r\n", result.toString())
       return done()
     })
   })
